@@ -1,4 +1,4 @@
-Agustin Gomes - Geo Location for PHP
+Agustin Gomes - Geo Location library for PHP
 ===========================================
 
 ##  DESCRIPTION
