@@ -48,7 +48,7 @@ class IpAddress
 	 */
 	public function setIpAddress($inputIp = '') 
 	{		
-		if(!filter_var($inputIp, FILTER_VALIDATE_IP) === false && $inputIp != '127.0.0.1'){	
+		if(!filter_var($inputIp, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE) === false && $inputIp != '127.0.0.1'){	
 			$this->ipAddress = $inputIp;
 			return true;
 		}
