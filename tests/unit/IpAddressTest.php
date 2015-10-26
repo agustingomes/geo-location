@@ -9,8 +9,18 @@ class IpAddressTest extends PHPUnit_Framework_TestCase
      */    
     public function testIpFromUserDefinition()
     {
-        $ip = new IpAddress('192.168.1.1');
-        $this->assertEquals('192.168.1.1', $ip->getIpAddress());
+        $ip = new IpAddress('8.8.8.8');
+        $this->assertEquals('8.8.8.8', $ip->getIpAddress());
+    }
+
+    /**
+     * Tests if IpAddress class can set the ip address from an internal network IP Address    
+     */    
+    public function testInternalNetworkIpDefinition()
+    {
+        $_SERVER['REMOTE_ADDR'] = '192.168.1.1';
+        $ip = new IpAddress();
+        $this->assertNotEquals($_SERVER['REMOTE_ADDR'], $ip->getIpAddress());
     }
 
     /**
